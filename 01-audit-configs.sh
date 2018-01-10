@@ -4,7 +4,7 @@
 # useful for auditing configs
 
 INPUTFILES='''one
-file
+file/path
 per
 line'''
 
