@@ -1,3 +1,3 @@
-# script-a-week
+# scripts
 
-bits of code
+misc. scripts.
