@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# shows application listening ports
+if [ $(uname) == "Darwin" ]; then
+    lsof -i -P | grep -i "listen"
+else
+    netstat -plnt
+fi
