@@ -1,0 +1,24 @@
+#!/bin/bash -e
+
+if [ -f "$(pwd)/Vagrantfile" ]; then
+    echo "Vagrantfile already exists."
+    echo "Logging in to VM"
+    vagrant up && vagrant ssh
+    exit 0
+fi
+
+if [ "$1" == "centos" ]; then
+    BOX="centos/7"
+elif [ "$1" == "centos6" ]; then
+    BOX="centos/6"
+elif [ "$1" == "ubuntu16" ]; then
+    BOX="ubuntu/xenial64"
+elif [ "$1" == "ubuntu14" ]; then
+    BOX="ubuntu/trusty64"
+else
+    BOX="ubuntu/bionic64"
+fi
+
+vagrant init $BOX
+vagrant up
+vagrant ssh
