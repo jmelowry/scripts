@@ -1,5 +1,4 @@
 #!/bin/bash
-
 tmpfile=$(mktemp)
 start=$(date +%s)
 
@@ -24,6 +23,7 @@ update_metrics() {
 }
 
 cleanup() {
+  # Ensure any in-progress line is terminated.
   echo -ne "\r\033[K"
 
   kill "$bg_pid" 2>/dev/null
@@ -43,7 +43,7 @@ cleanup() {
 
     echo -e "\033[1;33mExiting...\033[0m"
     echo -e "\033[1;32mTotal runtime:\033[0m ${total_runtime} seconds"
-    echo -e "\033[1;32mTotal logs:\033[0m ${total_logs}"
+    echo -e "\033[1;32mTotal logs lines:\033[0m ${total_logs}"
     echo -e "\033[1;32mLines per minute:\033[0m ${lpm}"
     echo -e "\033[1;32mLines per second:\033[0m ${lps}"
     echo -e "\033[1;32mError count:\033[0m ${error_count}"
