@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# pipe to this script to calculate log lines-per-minute.
 tmpfile=$(mktemp)
 cleanup() {
   end=$(date +%s)
